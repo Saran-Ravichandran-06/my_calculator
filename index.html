@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+    <img src="C:\Users\saran\OneDrive\Pictures\calc.avif" alt="bg-img" class="bg-img">
+    </div>
+    <br><br>
+    <h1>CALCULATOR</h1>
+    <br>
+    <div id="calc">
+    <input type="text" id="inp" readonly>
+    <br><br>
+    <button value="1" onclick="add(this)">1</button>
+    <button value="2" onclick="add(this)">2</button>
+    <button value="3" onclick="add(this)">3</button>
+    <button value="+" onclick="add(this)">+</button>
+    <br>
+    <button value="4" onclick="add(this)">4</button>
+    <button value="5" onclick="add(this)">5</button>
+    <button value="6" onclick="add(this)">6</button>
+    <button value="-" onclick="add(this)">-</button>
+    <br>
+    <button value="7" onclick="add(this)">7</button>
+    <button value="8" onclick="add(this)">8</button>
+    <button value="9" onclick="add(this)">9</button>
+    <button value="*" onclick="add(this)">*</button>
+    <br>
+    <button value="0" onclick="add(this)">0</button>
+    <button value="bs" onclick="backspace()">Bs</button>
+    <button value="cal" onclick="calc()">Ans</button>
+    <button value="%" onclick="add(this)">%</button>
+    </div>
+    <div id="bd">
+    <button id="bt" style="height: 28px;width: 80px;font-size: 20px;" onclick="clrall()">CLEAR</button>
+    </div>
+    <script>
+        function add(button){
+            const inputbox = document.getElementById("inp");
+            inputbox.value += button.value;
+        }
+        function backspace(){
+            const inputbox = document.getElementById("inp");
+            inputbox.value = inputbox.value.slice(0,-1);
+        }
+        function calc(){
+            const inputbox = document.getElementById("inp");
+            try{
+                const result = eval(inputbox.value);
+                inputbox.value = result;                
+            }
+            catch(error){
+                inputbox.value = "Invalid Syntax";
+            }        
+        }
+        function clrall(){
+            const inputbox = document.getElementById("inp");
+            inputbox.value = "";
+        }
+    </script>
+</body>
